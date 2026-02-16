@@ -78,10 +78,10 @@ const FavoritesBar = () => {
                       }`}
             onClick={() => searchWeather(fav.city)}
           >
-            {/* Weather icon if available */}
+            {/* FIXED: Using HTTPS for image */}
             {fav.icon && (
               <img 
-                src={`http://openweathermap.org/img/wn/${fav.icon}.png`}
+                src={`https://openweathermap.org/img/wn/${fav.icon}.png`}
                 alt=""
                 className="w-6 h-6"
               />

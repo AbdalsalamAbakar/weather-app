@@ -1,3 +1,4 @@
+// src/components/Forecast.jsx
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useWeather } from '../context/WeatherContext';
@@ -46,8 +47,9 @@ const Forecast = ({ data }) => {
             </div>
 
             <div className="flex items-center gap-3">
+              {/* FIXED: Changed from http:// to https:// */}
               <img
-                src={`http://openweathermap.org/img/wn/${day.icon}.png`}
+                src={`https://openweathermap.org/img/wn/${day.icon}.png`}
                 alt={day.description}
                 className="w-10 h-10"
               />

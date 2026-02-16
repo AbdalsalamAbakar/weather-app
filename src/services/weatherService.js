@@ -3,7 +3,8 @@ import axios from 'axios';
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 const BASE_URL = import.meta.env.VITE_WEATHER_API_URL;
-const GEO_URL = 'http://api.openweathermap.org/geo/1.0';
+// Use HTTPS for all API calls
+const GEO_URL = 'https://api.openweathermap.org/geo/1.0';
 
 class WeatherService {
   constructor() {
@@ -62,7 +63,7 @@ class WeatherService {
     }
   }
 
-  // NEW: Search for cities by name
+  // Search for cities by name
   async searchCities(query, limit = 5) {
     try {
       if (!query || query.length < 2) return [];
@@ -89,7 +90,7 @@ class WeatherService {
     }
   }
 
-  // NEW: Get city by coordinates (reverse geocoding)
+  // Get city by coordinates (reverse geocoding)
   async getCityByCoords(lat, lon) {
     try {
       const response = await this.geoApi.get('/reverse', {
@@ -118,7 +119,7 @@ class WeatherService {
     }
   }
 
-  // NEW: Format city display name
+  // Format city display name
   formatCityDisplay(city) {
     if (city.state) {
       return `${city.name}, ${city.state}, ${city.country}`;
@@ -126,7 +127,7 @@ class WeatherService {
     return `${city.name}, ${city.country}`;
   }
 
-  // NEW: Get weather by city name with better error handling
+  // Get weather by city name with better error handling
   async getCurrentWeather(city, units = 'metric') {
     try {
       // First, try to get weather directly
@@ -150,7 +151,7 @@ class WeatherService {
     }
   }
 
-  // NEW: Get weather by exact coordinates (most precise)
+  // Get weather by exact coordinates (most precise)
   async getWeatherByCoords(lat, lon, units = 'metric') {
     try {
       const [currentResponse, forecastResponse] = await Promise.all([
@@ -189,7 +190,7 @@ class WeatherService {
     }
   }
 
-  // ENHANCEMENT: Get weather alerts
+  // Get weather alerts
   async getWeatherAlerts(city, units = 'metric') {
     try {
       const response = await this.api.get('/weather', {
@@ -205,7 +206,7 @@ class WeatherService {
     }
   }
 
-  // ENHANCEMENT: Get air pollution data
+  // Get air pollution data
   async getAirPollution(lat, lon) {
     try {
       const response = await this.api.get('/air_pollution', {
@@ -236,6 +237,8 @@ class WeatherService {
       windGust: data.wind.gust || null,
       description: data.weather[0].description,
       icon: data.weather[0].icon,
+      // Use HTTPS for images
+      iconUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
       timestamp: data.dt,
       sunrise: data.sys.sunrise,
       sunset: data.sys.sunset,
@@ -284,6 +287,8 @@ class WeatherService {
       avgTemp: Math.round(day.temps.reduce((a, b) => a + b, 0) / day.temps.length),
       feelsLike: Math.round(day.feelsLike.reduce((a, b) => a + b, 0) / day.feelsLike.length),
       icon: day.icons[Math.floor(day.icons.length / 2)], // Use midday icon
+      // Use HTTPS for forecast icons as well
+      iconUrl: `https://openweathermap.org/img/wn/${day.icons[Math.floor(day.icons.length / 2)]}.png`,
       description: day.descriptions[Math.floor(day.descriptions.length / 2)],
       avgHumidity: Math.round(day.humidity.reduce((a, b) => a + b, 0) / day.humidity.length),
       avgWindSpeed: Math.round(day.windSpeed.reduce((a, b) => a + b, 0) / day.windSpeed.length),

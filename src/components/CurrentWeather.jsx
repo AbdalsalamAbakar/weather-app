@@ -99,8 +99,9 @@ const CurrentWeather = ({ data }) => {
         </div>
         
         <div className="flex items-center gap-4 mt-4 md:mt-0">
+          {/* FIXED: Using HTTPS for image */}
           <img 
-            src={`http://openweathermap.org/img/wn/${data.icon}@4x.png`}
+            src={`https://openweathermap.org/img/wn/${data.icon}@4x.png`}
             alt={data.description}
             className="w-20 h-20"
           />
