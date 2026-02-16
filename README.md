@@ -1,16 +1,69 @@
-# React + Vite
+# 🌤️ Weather Forecast App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive weather application built with React that provides real-time weather data and 5-day forecasts for cities worldwide. Features a clean UI with dark mode support, search history, and favorite cities.
 
-Currently, two official plugins are available:
+![Weather App Screenshot](https://via.placeholder.com/800x400?text=Weather+App+Screenshot)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+### Core Features
+- **Real-time Weather Data**: Current temperature, conditions, humidity, wind speed, and pressure
+- **5-Day Forecast**: Multi-day weather forecast with pagination
+- **City Search**: Search for any city worldwide with autocomplete suggestions
+- **Geolocation**: Auto-detect user's location for local weather (with permission)
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### User Experience
+- **Dark/Light Mode**: Toggle between themes with persistent preference
+- **Temperature Units**: Switch between Celsius (°C) and Fahrenheit (°F)
+- **Search History**: Automatically saves recent searches (up to 10 items)
+- **Favorite Cities**: Star cities to save them for quick access
+- **Loading States**: Smooth animations while fetching data
+- **Error Handling**: User-friendly error messages for various scenarios
 
-## Expanding the ESLint configuration
+### Bonus Features
+- ✅ City autocomplete suggestions
+- ✅ Individual history item removal
+- ✅ Clear all history option
+- ✅ Persistent favorites with localStorage
+- ✅ Browser-based geolocation detection
+- ✅ Responsive design with Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Live Demo
+
+[View Live Demo](#) (Add your deployed link here)
+
+## 📸 Screenshots
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![Light Mode](https://via.placeholder.com/400x300?text=Light+Mode) | ![Dark Mode](https://via.placeholder.com/400x300?text=Dark+Mode) |
+
+| Search History | Favorites |
+|----------------|-----------|
+| ![Search History](https://via.placeholder.com/400x300?text=Search+History) | ![Favorites](https://via.placeholder.com/400x300?text=Favorites) |
+
+## 🛠️ Technologies Used
+
+- **Frontend Framework**: React 18 with Vite
+- **Styling**: Tailwind CSS
+- **Icons**: React Icons
+- **HTTP Client**: Axios
+- **State Management**: React Context API with useReducer
+- **API**: OpenWeatherMap API
+- **Storage**: localStorage for persistence
+- **Deployment**: Ready for Vercel/Netlify
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v14 or higher)
+- npm or yarn
+- OpenWeatherMap API key (free tier)
+
+## 🔧 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/weather-app.git
+   cd weather-app
